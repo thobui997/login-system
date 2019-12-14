@@ -22,13 +22,13 @@
         <section>
             <h3>Sign Up</h3>
             <div class="content">
-                <form accept-charset="utf-8">
+                <form action="inc/signup.inc.php" method="post" >
                     <input type="text" name="user_first" placeholder="First Name">
                     <input type="text" name="user_last" placeholder="Last Name">
                     <input type="email" name="user_email" placeholder="Email">
                     <input type="text" name="user_usrname" placeholder="Username">
                     <input type="password" name="user_pwd" placeholder="Password">
-                    <button type="submit" class="btn btn-submit sign-in">Register</button>
+                    <button type="submit" class="btn btn-submit sign-in" name="submit">Register</button>
                 </form>
             </div>
         </section>
