@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,23 +12,24 @@
 </head>
 <body class="home index">
 	<div class="wrap">
-		<nav class="nav nav-custom">
-			<h1>LOGIN</h1>
-			<form action="index_submit" method="get" accept-charset="utf-8" class="form-signin">
-				<input type="text" placeholder="Username/Email" name="user_id">
-				<input type="password" placeholde="password" placeholder="Enter your password" name="user_pwd">
-				<button type="submit" class="btn btn-green sign-in">Login</button>
-			</form>
-			<a href="sign-up.php" class="btn btn-red sign-up">Register</a>
-		</nav>
+		
+		<?php 
+			include_once "includes/navbar.php";
+		?>
 
 		<section>
 			<h3>home</h3>
+			<?php
+				if (isset($_SESSION['u_id'])) {
+					echo '<p> login success </p>';
+				}
+			?>
 		</section>
 
-		<footer>
-			<p>Design by <a href="" >Tho Bui</a></p>
-		</footer>
+		
+		<?php 
+			include_once "includes/footer.php";
+		?>
 	</div>
 </body>
 </html>

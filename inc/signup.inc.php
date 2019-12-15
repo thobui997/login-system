@@ -6,11 +6,11 @@
 		include_once "db.inc.php";
 
 		// except error special char 
-		$first = mysqli_real_escape_string($conn, $_POST['user_first']);
-		$last = mysqli_real_escape_string($conn, $_POST['user_last']);
-		$email = mysqli_real_escape_string($conn, $_POST['user_email']);
+		$first    = mysqli_real_escape_string($conn, $_POST['user_first']);
+		$last     = mysqli_real_escape_string($conn, $_POST['user_last']);
+		$email    = mysqli_real_escape_string($conn, $_POST['user_email']);
 		$username = mysqli_real_escape_string($conn, $_POST['user_usrname']);
-		$pwd = mysqli_real_escape_string($conn, $_POST['user_pwd']);
+		$pwd      = mysqli_real_escape_string($conn, $_POST['user_pwd']);
 
 		// error handlers
 		// check emty field
@@ -29,8 +29,8 @@
 					header("Location: ../sign-up.php?signup=email");
 					exit();
 				} else {
-					$sql = "SELECT * Users WHERE user_id='$user_id'";
-					$result = mysqli_query($conn, $sql);
+					$sql         = "SELECT * Users WHERE user_id='$user_id'";
+					$result      = mysqli_query($conn, $sql);
 					$resultCheck = mysqli_num_rows($result);
 
 					if ($resultCheck > 0) {
@@ -39,7 +39,7 @@
 					} else {
 						// hashing password
 						$hashedPass = password_hash($pwd, PASSWORD_DEFAULT);
-						$sql = "INSERT INTO Users(user_first, user_last, user_email, user_usrname, user_pwd) VALUES ('$first', '$last', '$email', '$username', '$hashedPass')";
+						$sql        = "INSERT INTO Users(user_first, user_last, user_email, user_usrname, user_pwd) VALUES ('$first', '$last', '$email', '$username', '$hashedPass')";
 						mysqli_query( $conn, $sql);
 						header("Location: ../sign-up.php?signup=success");
 						exit();
@@ -51,4 +51,4 @@
 		header("Location: ../signup.php?sign-up=error");
 	}
 
-?>
+?>      
